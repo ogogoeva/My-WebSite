@@ -122,6 +122,8 @@ dd { margin: .25rem 0 0; }
 .resource-action small { color: var(--muted); font-weight: 400; }
 .channel-card { display: flex; justify-content: space-between; align-items: center; gap: 1rem; margin-top: 1rem; background: #e5e9dc; }
 .channel-card p { margin-top: .25rem; }
+.channel-profile { display: flex; align-items: center; gap: clamp(.75rem, 2.5vw, 1.25rem); }
+.channel-portrait { display: block; width: clamp(4rem, 11vw, 6rem); height: auto; aspect-ratio: 1; flex: none; border-radius: 50%; object-fit: cover; object-position: center 18%; }
 .video-card { display: flex; flex-direction: column; gap: .85rem; padding: .65rem; background: var(--paper); text-decoration: none; }
 .video-card:hover { border-color: var(--olive); }
 .video-preview { position: relative; display: block; overflow: hidden; aspect-ratio: 16 / 9; border-radius: .95rem; background: var(--wash); }
