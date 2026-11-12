@@ -31,14 +31,9 @@ function drawThread() {
 
   for (const photoPath of photoThreads) {
     const photoTop = photoPath.ownerSVGElement.getBoundingClientRect().top;
-    const firstPhoto = photoPath.closest('.cover');
     const reveal = reducedMotion.matches
       ? 1
-      : Math.min(1, Math.max(0, ((firstPhoto ? height * 0.45 : height * 0.92) - photoTop) / (height * 0.7)));
-    if (photoPath.closest('.about-photo')) {
-      const sway = reducedMotion.matches ? 0 : Math.sin(reveal * Math.PI * 2) * 11;
-      photoPath.setAttribute('transform', 'translate(0 ' + sway + ')');
-    }
+      : Math.min(1, Math.max(0, (height * 0.45 - photoTop) / (height * 0.7)));
     photoPath.style.strokeDasharray = '100';
     photoPath.style.strokeDashoffset = String(100 * (1 - reveal));
   }
