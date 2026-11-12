@@ -191,3 +191,7 @@ h1, h2, h3, dt { font-weight: 600; }
 @media (max-width: 650px) {
   .book-grid { grid-template-columns: minmax(0, 1fr); }
 }
+
+.button.button-outline { color: var(--olive); background: transparent; border: 1px solid var(--olive); }
+.button.button-outline:hover { background: var(--wash); }
+.contact-actions { display: flex; flex-wrap: wrap; gap: .75rem; }
