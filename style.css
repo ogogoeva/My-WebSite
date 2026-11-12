@@ -204,10 +204,10 @@ h1, h2, h3, dt { font-weight: 600; }
 
 @media (max-width: 750px) {
   .top { grid-template-columns: minmax(0, 1fr); }
-  .top nav { grid-area: auto; }
+  .top nav { grid-area: auto; justify-content: center; }
   .top nav .desktop-nav-link { display: none; }
-  .top-action { grid-area: auto; display: flex; }
-  .top-action, .button, .closing .button, .resource-action {
+  .top-action { display: none; }
+  .button, .closing .button, .resource-action {
     width: 100%;
     min-height: 48px;
     align-items: center;
