@@ -1,18 +1,10 @@
 const thread = document.querySelector('.topic-thread');
-const path = thread.querySelector('path');
+const tail = thread.querySelector('.yarn-tail');
+const ball = thread.querySelector('.yarn-ball');
 const education = document.querySelector('.education');
 const photoThreads = document.querySelectorAll('.portrait-thread path');
 const diplomas = document.querySelector('.diploma-gallery');
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-const length = path.getTotalLength();
-const pointCount = 180;
-const tangled = Array.from({ length: pointCount + 1 }, (_, index) => {
-  return path.getPointAtLength(length * index / pointCount);
-});
-const straight = tangled.map((_, index) => {
-  const position = index / pointCount;
-  return { x: 720 * position, y: 60 + 10 * Math.sin(position * Math.PI * 3) };
-});
 let frame;
 
 function drawThread() {
@@ -41,13 +33,9 @@ function drawThread() {
   const scrollProgress = Math.min(1, Math.max(0, (height * 0.75 - top) / (height * 0.56)));
   const progress = reducedMotion.matches ? 1 : scrollProgress ** 1.25;
 
-  const points = tangled.map((point, index) => {
-    const target = straight[index];
-    const x = point.x + (target.x - point.x) * progress;
-    const y = point.y + (target.y - point.y) * progress;
-    return x.toFixed(2) + ' ' + y.toFixed(2);
-  });
-  path.setAttribute('d', 'M' + points.join(' L'));
+  const ballX = 70 + progress * 576;
+  ball.setAttribute('transform', 'translate(' + ballX + ' 65) rotate(' + (progress * 1160) + ')');
+  tail.setAttribute('d', 'M0 75 C' + (ballX * 0.3) + ' 93 ' + (ballX * 0.72) + ' 80 ' + (ballX - 7) + ' 88');
 }
 
 function scheduleDraw() {
