@@ -89,3 +89,10 @@ if ('IntersectionObserver' in window && !reducedMotion.matches) {
     diplomaObserver.observe(diploma);
   }
 }
+
+if ('IntersectionObserver' in window) {
+  const heroObserver = new IntersectionObserver(([entry]) => {
+    heroThread.classList.toggle('is-offscreen', !entry.isIntersecting);
+  });
+  heroObserver.observe(heroThread.closest('.cover'));
+}
