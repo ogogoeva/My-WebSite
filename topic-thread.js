@@ -1,6 +1,7 @@
 const thread = document.querySelector('.topic-thread');
 const path = thread.querySelector('path');
 const education = document.querySelector('.education');
+const photoThreads = document.querySelectorAll('.portrait-thread path, .connecting-thread path');
 const diplomas = document.querySelector('.diploma-gallery');
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 const length = path.getTotalLength();
@@ -28,9 +29,17 @@ function drawThread() {
   diplomas.style.setProperty('--diploma-drift', ((galleryProgress - 0.5) * 16) + 'px');
 
 
-  const progress = reducedMotion.matches
-    ? 1
-    : Math.min(1, Math.max(0, (height * 0.95 - top) / (height * 0.9)));
+  for (const photoPath of photoThreads) {
+    const photoTop = photoPath.ownerSVGElement.getBoundingClientRect().top;
+    const reveal = reducedMotion.matches
+      ? 1
+      : Math.min(1, Math.max(0, (height * 0.94 - photoTop) / (height * 0.9)));
+    photoPath.style.strokeDasharray = '100';
+    photoPath.style.strokeDashoffset = String(100 * (1 - reveal));
+  }
+
+  const scrollProgress = Math.min(1, Math.max(0, (height * 0.67 - top) / (height * 0.86)));
+  const progress = reducedMotion.matches ? 1 : scrollProgress ** 1.8;
 
   const points = tangled.map((point, index) => {
     const target = straight[index];

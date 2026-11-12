@@ -279,3 +279,11 @@ h1, h2, h3, dt { font-weight: 600; }
   .diploma-gallery img { transform: translateY(var(--diploma-drift, 0px)); }
   .diploma-gallery a:nth-child(even) img { transform: translateY(calc(-1 * var(--diploma-drift, 0px))); }
 }
+
+.connecting-thread { display: block; height: clamp(2.25rem, 8vw, 6rem); color: var(--olive); margin-top: -1.25rem; }
+.connecting-thread path, .video-thread path { stroke: currentColor; stroke-width: 1.4; stroke-linecap: round; vector-effect: non-scaling-stroke; }
+.connecting-thread + #about { padding-top: clamp(1rem, 3vw, 2rem); }
+.video-card { position: relative; border-color: transparent; padding: 1rem; }
+.video-card:hover { border-color: transparent; }
+.video-thread { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; color: var(--olive); opacity: .7; }
+.video-card:hover .video-thread, .video-card:focus-visible .video-thread { opacity: 1; }
