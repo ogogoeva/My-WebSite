@@ -204,6 +204,7 @@ h1, h2, h3, dt { font-weight: 600; }
 
 @media (max-width: 750px) {
   .top { grid-template-columns: minmax(0, 1fr); }
+  .top .brand { text-align: center; }
   .top nav { grid-area: auto; justify-content: center; }
   .top nav .desktop-nav-link { display: none; }
   .top-action { display: none; }
