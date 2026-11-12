@@ -276,9 +276,6 @@ h1, h2, h3, dt { font-weight: 600; }
   .diploma-gallery a:nth-child(even) img { transform: translateY(calc(-1 * var(--diploma-drift, 0px))); }
 }
 
-.connecting-thread { display: block; height: clamp(2.25rem, 8vw, 6rem); color: var(--olive); margin-top: -1.25rem; }
-.connecting-thread path, .video-thread path { stroke: currentColor; stroke-width: 1.4; stroke-linecap: round; vector-effect: non-scaling-stroke; }
-.connecting-thread + #about { padding-top: clamp(1rem, 3vw, 2rem); }
 .video-card { position: relative; border-color: transparent; padding: 1rem; }
 .video-card:hover { border-color: transparent; }
 .video-thread { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; color: var(--olive); opacity: .7; }
@@ -286,3 +283,29 @@ h1, h2, h3, dt { font-weight: 600; }
 
 .diploma-gallery a { display: block; }
 .diploma-gallery img { border-radius: 0; }
+
+.video-thread path { stroke: currentColor; stroke-width: 1.4; stroke-linecap: round; vector-effect: non-scaling-stroke; }
+#faq details[open] { background: var(--paper); border-radius: 1rem; padding-inline: 1rem; }
+#resources .resource-card {
+  grid-template-columns: minmax(0, 1fr) clamp(4.25rem, 11vw, 8rem);
+  background: #e4e9da;
+  border-radius: 1.6rem .6rem 1.6rem .6rem;
+  gap: .8rem;
+}
+#resources .resource-card:nth-child(2), #resources .resource-card:nth-child(3) { background: #efe5d7; }
+#resources .resource-cover { align-self: center; }
+#resources .resource-tag { background: var(--paper); }
+.book-entry {
+  grid-template-columns: clamp(4.5rem, 10vw, 8rem) minmax(0, 1fr);
+  gap: clamp(.8rem, 3vw, 1.6rem);
+  align-items: start;
+  border-radius: 1.25rem;
+  background: var(--paper);
+}
+.book-feature { grid-template-columns: clamp(5rem, 15vw, 11rem) minmax(0, 1fr); background: var(--wash); }
+.book-cover { display: block; width: 100%; height: auto; box-shadow: 4px 6px 12px #263c2d26; }
+.book-copy { display: grid; gap: .55rem; }
+.book-copy p { color: var(--muted); }
+@media (max-width: 750px) {
+  #resources .resource-card .resource-action { grid-column: 1 / -1; }
+}

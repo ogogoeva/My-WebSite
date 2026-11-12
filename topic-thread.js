@@ -1,7 +1,7 @@
 const thread = document.querySelector('.topic-thread');
 const path = thread.querySelector('path');
 const education = document.querySelector('.education');
-const photoThreads = document.querySelectorAll('.portrait-thread path, .connecting-thread path');
+const photoThreads = document.querySelectorAll('.portrait-thread path');
 const diplomas = document.querySelector('.diploma-gallery');
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 const length = path.getTotalLength();
@@ -31,9 +31,10 @@ function drawThread() {
 
   for (const photoPath of photoThreads) {
     const photoTop = photoPath.ownerSVGElement.getBoundingClientRect().top;
+    const firstPhoto = photoPath.closest('.cover');
     const reveal = reducedMotion.matches
       ? 1
-      : Math.min(1, Math.max(0, (height * 0.94 - photoTop) / (height * 0.9)));
+      : Math.min(1, Math.max(0, ((firstPhoto ? height * 0.45 : height * 0.92) - photoTop) / (height * 0.7)));
     if (photoPath.closest('.about-photo')) {
       const sway = reducedMotion.matches ? 0 : Math.sin(reveal * Math.PI * 2) * 11;
       photoPath.setAttribute('transform', 'translate(0 ' + sway + ')');
@@ -62,3 +63,18 @@ window.addEventListener('scroll', scheduleDraw, { passive: true });
 window.addEventListener('resize', scheduleDraw);
 reducedMotion.addEventListener('change', scheduleDraw);
 drawThread();
+
+const firstQuestion = document.querySelector('#faq details');
+if ('IntersectionObserver' in window && !reducedMotion.matches) {
+  firstQuestion.open = false;
+  const firstQuestionObserver = new IntersectionObserver(([entry], observer) => {
+    if (entry.isIntersecting) {
+      firstQuestion.open = true;
+      observer.disconnect();
+    }
+  }, { threshold: 0.6 });
+  firstQuestionObserver.observe(firstQuestion);
+  document.querySelector('#faq').addEventListener('click', () => {
+    firstQuestionObserver.disconnect();
+  }, { once: true });
+}
