@@ -6,7 +6,6 @@ const strands = [...thread.querySelectorAll('path')].map((path) => {
 });
 const education = document.querySelector('.education');
 const photoThreads = document.querySelectorAll('.portrait-thread path');
-const diplomas = document.querySelector('.diploma-gallery');
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 let frame;
 
@@ -19,9 +18,6 @@ function drawThread() {
     ? 1
     : Math.min(1, Math.max(0, (height * 0.76 - timeline.top) / Math.max(1, timeline.height)));
   education.style.setProperty('--thread-progress', (timelineProgress * 100) + '%');
-  const galleryTop = diplomas.getBoundingClientRect().top;
-  const galleryProgress = Math.min(1, Math.max(0, 1 - galleryTop / height));
-  diplomas.style.setProperty('--diploma-drift', ((galleryProgress - 0.5) * 16) + 'px');
 
 
   for (const photoPath of photoThreads) {
@@ -71,4 +67,19 @@ if ('IntersectionObserver' in window && !reducedMotion.matches) {
   document.querySelector('#faq').addEventListener('click', () => {
     firstQuestionObserver.disconnect();
   }, { once: true });
+}
+
+if ('IntersectionObserver' in window && !reducedMotion.matches) {
+  const diplomaObserver = new IntersectionObserver((entries, observer) => {
+    for (const entry of entries) {
+      if (entry.isIntersecting) {
+        entry.target.classList.remove('awaiting-scroll');
+        observer.unobserve(entry.target);
+      }
+    }
+  }, { threshold: 0.2 });
+  for (const diploma of document.querySelectorAll('.education-diploma')) {
+    diploma.classList.add('awaiting-scroll');
+    diplomaObserver.observe(diploma);
+  }
 }

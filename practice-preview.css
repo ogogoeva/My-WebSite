@@ -137,8 +137,8 @@
   background: transparent;
 }
 .practice-preview .video-preview { border-radius: .2rem; }
-#rules summary::after,
-#rules details[open] summary::after {
+:is(#rules, #faq) summary::after,
+:is(#rules, #faq) details[open] summary::after {
   width: .57rem;
   height: .57rem;
   border: 0;
@@ -147,7 +147,7 @@
   border-radius: 0 .13rem;
   transform: translateY(-65%) rotate(45deg);
 }
-#rules details[open] summary::after { transform: translateY(-25%) rotate(225deg); }
+:is(#rules, #faq) details[open] summary::after { transform: translateY(-25%) rotate(225deg); }
 
 .feelings-collage figcaption { inset: 0; display: block; }
 .feelings-collage figcaption span { position: absolute; white-space: nowrap; }
@@ -186,3 +186,10 @@
 .book-copy { grid-column: 1; grid-row: 1; }
 .book-cover { grid-column: 2; grid-row: 1; align-self: center; }
 .book-copy .resource-action { justify-self: start; margin-top: .4rem; }
+
+.education-diploma { display: block; width: min(100%, 21rem); margin-block: .75rem .4rem; }
+.education-diploma img { display: block; width: 100%; height: auto; max-height: 19rem; object-fit: contain; object-position: left center; }
+@media (prefers-reduced-motion: no-preference) {
+  .education-diploma { transition: opacity .45s ease, transform .45s ease; }
+  .education-diploma.awaiting-scroll:not(:focus-visible) { opacity: 0; transform: translateY(.75rem); }
+}
