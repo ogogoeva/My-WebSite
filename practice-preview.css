@@ -101,3 +101,15 @@
 }
 
 .preview-audio audio { display: block; width: min(100%, 26rem); margin-top: .75rem; }
+
+.practice-preview { --portrait-radius: .75rem; }
+.practice-preview .cover,
+.practice-preview #about .about-photo,
+.practice-preview #about .about-portrait { border-radius: var(--portrait-radius); }
+
+.preview-audio audio {
+  border-radius: 999px;
+  background: var(--wash);
+  accent-color: var(--olive);
+}
+.preview-audio audio::-webkit-media-controls-panel { background-color: var(--wash); }
