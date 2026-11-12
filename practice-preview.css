@@ -332,6 +332,22 @@
 .voice-thread { display: block; width: min(75%, 14rem); height: 30px; margin-left: 12%; }
 .voice-thread path { stroke: #687347; stroke-width: 1.25; stroke-linecap: round; }
 
-/* Keep the CBT diagram above the face and the looping threads below it. */
-.hero-cbt { height: 28%; }
-.practice-preview .cover > .portrait-thread > path:first-child { transform: translateY(370px) scaleY(.68); }
+.about-visual .preview-audio {
+  width: min(100%, 16rem);
+  padding: .42rem .6rem;
+  background: transparent;
+}
+.about-visual .preview-audio h3 { font-size: 1.05rem; }
+.about-visual .preview-audio audio { height: 33px; margin-top: .2rem; }
+.voice-thread { width: min(100%, 16rem); height: 34px; margin: 0; }
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+    .voice-thread path {
+      stroke-dasharray: 100;
+      animation: voice-thread-draw linear both;
+      animation-timeline: view();
+      animation-range: entry 0% cover 40%;
+    }
+  }
+}
+@keyframes voice-thread-draw { from { stroke-dashoffset: 100; } to { stroke-dashoffset: 0; } }
