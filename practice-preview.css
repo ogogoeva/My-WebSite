@@ -193,3 +193,43 @@
   .education-diploma { transition: opacity .45s ease, transform .45s ease; }
   .education-diploma.awaiting-scroll:not(:focus-visible) { opacity: 0; transform: translateY(.75rem); }
 }
+
+/* Shared paper mount and warm photographic grading. */
+.practice-preview {
+  --image-paper: #eee4d4;
+  --image-edge: #d8cbbb;
+}
+.practice-preview .cover,
+.practice-preview #about .about-photo,
+.practice-preview .video-preview {
+  background: var(--image-paper);
+  border: 1px solid var(--image-edge);
+  border-radius: var(--portrait-radius);
+}
+.practice-preview .cover img,
+.practice-preview .about-portrait,
+.practice-preview .channel-portrait {
+  filter: saturate(.48) sepia(.16) contrast(.94);
+}
+.practice-preview .cover::after,
+.practice-preview .about-photo::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(125deg, #ead6b62b, transparent 58%, #4938291a);
+  pointer-events: none;
+}
+.practice-preview .portrait-thread { z-index: 1; }
+.practice-preview .portrait-thread path { stroke: #f5e4c9; }
+.practice-preview .channel-portrait {
+  border: 2px solid var(--image-paper);
+  box-shadow: 0 0 0 1px var(--image-edge);
+}
+.practice-preview .book-cover,
+.practice-preview .education-diploma {
+  border: 1px solid var(--image-edge);
+  background: var(--image-paper);
+  padding: .28rem;
+  box-shadow: 2px 3px 9px #4938291c;
+}
