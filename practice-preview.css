@@ -249,3 +249,9 @@
 .practice-preview .portrait-thread path { stroke-width: 1.8; filter: none; }
 .practice-preview .cover .portrait-thread path { stroke: #8b4d49; }
 .practice-preview .about-photo .portrait-thread path { stroke: #687347; }
+
+.practice-preview .cover { aspect-ratio: 4 / 4.55; }
+@media (min-width: 651px) {
+  .practice-preview .hero { grid-template-columns: minmax(0, 1fr) minmax(0, 1.16fr); }
+}
+.practice-preview .cover .thread-echo { stroke: #a66a60; stroke-width: 1.2; opacity: .72; }
