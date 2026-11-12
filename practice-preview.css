@@ -288,3 +288,19 @@
   pointer-events: none;
 }
 .top nav .nav-thread-link path { stroke: currentColor; stroke-width: 1.4; stroke-linecap: round; }
+
+.practice-preview .hero {
+  padding-block: clamp(.8rem, 3svh, 2rem);
+}
+.practice-preview .hero .cover {
+  width: 100%;
+  min-width: 0;
+  max-height: 63svh;
+}
+@media (max-width: 650px) {
+  .practice-preview .hero { gap: .65rem; }
+  .practice-preview .hero .cover { max-height: clamp(6rem, calc(100svh - 26rem), 42svh); }
+  .practice-preview .hero .lede { margin-top: .75rem; }
+  .practice-preview .hero-action { margin-top: .85rem; }
+  .preview-topics { padding-block: .65rem; }
+}
