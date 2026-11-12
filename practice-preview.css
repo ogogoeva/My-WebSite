@@ -255,3 +255,4 @@
   .practice-preview .hero { grid-template-columns: minmax(0, 1fr) minmax(0, 1.16fr); }
 }
 .practice-preview .cover .thread-echo { stroke: #a66a60; stroke-width: 1.2; opacity: .72; }
+.practice-preview .about-photo .thread-echo { stroke: #829061; stroke-width: 1.2; opacity: .75; }
