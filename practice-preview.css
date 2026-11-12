@@ -351,3 +351,17 @@
   }
 }
 @keyframes voice-thread-draw { from { stroke-dashoffset: 100; } to { stroke-dashoffset: 0; } }
+
+.about-visual .preview-audio { padding: 0; border: 0; }
+.about-visual .preview-audio summary {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: .45rem 1rem;
+  border-radius: 999px;
+  background: var(--wash);
+  color: var(--olive);
+  font-size: .9rem;
+}
+.about-visual .preview-audio summary::after { content: none; }
+.about-visual .preview-audio audio { margin-top: .55rem; }
