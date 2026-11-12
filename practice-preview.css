@@ -22,7 +22,7 @@
 .preview-track {
   display: flex;
   width: max-content;
-  animation: preview-ticker 32s linear infinite;
+  animation: preview-ticker 58s linear infinite;
 }
 .preview-track.is-paused { animation-play-state: paused; }
 .preview-track > div { display: flex; }
