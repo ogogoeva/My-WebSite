@@ -269,3 +269,9 @@
   from { stroke-dashoffset: 100; }
   to { stroke-dashoffset: 0; }
 }
+
+.practice-preview .intro { container-type: inline-size; }
+.practice-preview .hero h1 {
+  font-size: min(7.2rem, 14cqw);
+  white-space: nowrap;
+}
