@@ -233,3 +233,10 @@
   padding: .28rem;
   box-shadow: 2px 3px 9px #4938291c;
 }
+
+.practice-preview .cover img,
+.practice-preview .about-portrait { filter: none; }
+.practice-preview .cover::after,
+.practice-preview .about-photo::after { content: none; }
+.practice-preview .portrait-thread { opacity: .65; }
+.practice-preview .cover img { object-position: center 15%; }
