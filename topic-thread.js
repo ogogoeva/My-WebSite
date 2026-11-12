@@ -1,6 +1,7 @@
 const thread = document.querySelector('.topic-thread');
 const path = thread.querySelector('path');
 const education = document.querySelector('.education');
+const diplomas = document.querySelector('.diploma-gallery');
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 const length = path.getTotalLength();
 const pointCount = 180;
@@ -22,6 +23,10 @@ function drawThread() {
     ? 1
     : Math.min(1, Math.max(0, (height * 0.76 - timeline.top) / Math.max(1, timeline.height)));
   education.style.setProperty('--thread-progress', (timelineProgress * 100) + '%');
+  const galleryTop = diplomas.getBoundingClientRect().top;
+  const galleryProgress = Math.min(1, Math.max(0, 1 - galleryTop / height));
+  diplomas.style.setProperty('--diploma-drift', ((galleryProgress - 0.5) * 16) + 'px');
+
 
   const progress = reducedMotion.matches
     ? 1
