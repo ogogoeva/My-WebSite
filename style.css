@@ -146,5 +146,6 @@ dd { margin: .25rem 0 0; }
   .channel-card { align-items: flex-start; flex-direction: column; }
 }
 
-.about-portrait { display: block; width: min(100%, 20rem); height: auto; aspect-ratio: 3 / 4; object-fit: cover; margin-top: 1.35rem; border-radius: 1rem; }
-.about-copy { align-self: center; }
+#about { row-gap: clamp(1.25rem, 3vw, 2rem); }
+.about-heading { grid-column: 1 / -1; }
+.about-portrait { display: block; width: min(100%, 20rem); height: auto; aspect-ratio: 3 / 4; object-fit: cover; border-radius: 1rem; }
