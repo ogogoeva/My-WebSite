@@ -240,3 +240,12 @@
 .practice-preview .about-photo::after { content: none; }
 .practice-preview .portrait-thread { opacity: .65; }
 .practice-preview .cover img { object-position: center 15%; }
+
+.practice-preview .cover,
+.practice-preview #about .about-photo { background: transparent; border: 0; border-radius: 0; }
+.practice-preview .cover img { object-fit: contain; object-position: center; }
+.practice-preview #about .about-portrait { border-radius: 0; }
+.practice-preview .portrait-thread { opacity: 1; }
+.practice-preview .portrait-thread path { stroke-width: 1.8; filter: none; }
+.practice-preview .cover .portrait-thread path { stroke: #687347; }
+.practice-preview .about-photo .portrait-thread path { stroke: #8b4d49; }
