@@ -331,3 +331,7 @@
 .about-visual .preview-audio audio { width: 100%; height: 38px; margin-top: .35rem; }
 .voice-thread { display: block; width: min(75%, 14rem); height: 30px; margin-left: 12%; }
 .voice-thread path { stroke: #687347; stroke-width: 1.25; stroke-linecap: round; }
+
+/* Keep the CBT diagram above the face and the looping threads below it. */
+.hero-cbt { height: 28%; }
+.practice-preview .cover > .portrait-thread > path:first-child { transform: translateY(370px) scaleY(.68); }
