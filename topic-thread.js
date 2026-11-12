@@ -34,12 +34,16 @@ function drawThread() {
     const reveal = reducedMotion.matches
       ? 1
       : Math.min(1, Math.max(0, (height * 0.94 - photoTop) / (height * 0.9)));
+    if (photoPath.closest('.about-photo')) {
+      const sway = reducedMotion.matches ? 0 : Math.sin(reveal * Math.PI * 2) * 11;
+      photoPath.setAttribute('transform', 'translate(0 ' + sway + ')');
+    }
     photoPath.style.strokeDasharray = '100';
     photoPath.style.strokeDashoffset = String(100 * (1 - reveal));
   }
 
-  const scrollProgress = Math.min(1, Math.max(0, (height * 0.67 - top) / (height * 0.86)));
-  const progress = reducedMotion.matches ? 1 : scrollProgress ** 1.8;
+  const scrollProgress = Math.min(1, Math.max(0, (height * 0.75 - top) / (height * 0.56)));
+  const progress = reducedMotion.matches ? 1 : scrollProgress ** 1.25;
 
   const points = tangled.map((point, index) => {
     const target = straight[index];
