@@ -83,9 +83,6 @@
 }
 .practice-preview .book-entry { border-radius: .3rem; }
 .practice-preview .closing { background: var(--olive); }
-@media (min-width: 651px) {
-  .practice-preview .video-card:nth-child(2) { margin-top: 2rem; }
-}
 
 .preview-audio audio { display: block; width: min(100%, 26rem); margin-top: .75rem; }
 
@@ -151,5 +148,16 @@
   transform: translateY(-65%) rotate(45deg);
 }
 #rules details[open] summary::after { transform: translateY(-25%) rotate(225deg); }
-.education-collage { display: block; width: min(100%, 20rem); height: auto; margin: 1rem auto 0; }
-.yarn-ball path { stroke-width: 1.2; }
+
+.feelings-collage figcaption { inset: 0; display: block; }
+.feelings-collage figcaption span { position: absolute; white-space: nowrap; }
+.feelings-collage figcaption span:nth-child(1) { left: 3%; top: 27%; }
+.feelings-collage figcaption span:nth-child(2) { left: 40%; top: 9%; }
+.feelings-collage figcaption span:nth-child(3) { right: 2%; top: 23%; }
+.topic-thread path { stroke-width: 1.45; }
+.topic-thread path:nth-child(2) { color: #925852; }
+.topic-thread path:nth-child(3) { color: #77764c; }
+.education::before {
+  width: 2px;
+  mask-image: repeating-linear-gradient(to bottom, #000 0 5px, transparent 5px 7px);
+}

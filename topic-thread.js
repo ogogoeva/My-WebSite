@@ -1,6 +1,9 @@
 const thread = document.querySelector('.topic-thread');
-const tail = thread.querySelector('.yarn-tail');
-const ball = thread.querySelector('.yarn-ball');
+const strands = [...thread.querySelectorAll('path')].map((path) => {
+  const length = path.getTotalLength();
+  const points = Array.from({ length: 181 }, (_, index) => path.getPointAtLength(length * index / 180));
+  return { path, points };
+});
 const education = document.querySelector('.education');
 const photoThreads = document.querySelectorAll('.portrait-thread path');
 const diplomas = document.querySelector('.diploma-gallery');
@@ -33,9 +36,17 @@ function drawThread() {
   const scrollProgress = Math.min(1, Math.max(0, (height * 0.75 - top) / (height * 0.56)));
   const progress = reducedMotion.matches ? 1 : scrollProgress ** 1.25;
 
-  const ballX = 70 + progress * 576;
-  ball.setAttribute('transform', 'translate(' + ballX + ' 65) rotate(' + (progress * 1160) + ')');
-  tail.setAttribute('d', 'M0 75 C' + (ballX * 0.3) + ' 93 ' + (ballX * 0.72) + ' 80 ' + (ballX - 7) + ' 88');
+  for (const [strandIndex, { path, points }] of strands.entries()) {
+    const release = Math.min(1, Math.max(0, (progress - strandIndex * 0.12) / 0.76));
+    const line = points.map((point, index) => {
+      const fraction = index / (points.length - 1);
+      const x = point.x + (720 * fraction - point.x) * release;
+      const targetY = 60 + (strandIndex - 1) * (15 + 20 * fraction) + 4 * Math.sin(fraction * Math.PI * 2);
+      const y = point.y + (targetY - point.y) * release;
+      return x.toFixed(1) + ' ' + y.toFixed(1);
+    });
+    path.setAttribute('d', 'M' + line.join(' L'));
+  }
 }
 
 function scheduleDraw() {
