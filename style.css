@@ -152,7 +152,6 @@ dd { margin: .25rem 0 0; }
 
 .about-stories { grid-column: 1 / -1; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(1rem, 3vw, 2rem); }
 .about-story { overflow: hidden; border: 1px solid var(--rule); border-radius: 1.45rem; background: var(--wash); }
-.about-story img { display: block; width: 100%; aspect-ratio: 2 / 1; object-fit: cover; }
 .about-story .body-copy { padding: clamp(1rem, 3vw, 1.65rem); gap: .65rem; }
 @media (max-width: 650px) {
   .about-stories { grid-template-columns: 1fr; }
