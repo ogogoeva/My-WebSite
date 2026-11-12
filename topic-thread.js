@@ -5,7 +5,8 @@ const strands = [...thread.querySelectorAll('path')].map((path) => {
   return { path, points };
 });
 const education = document.querySelector('.education');
-const photoThreads = document.querySelectorAll('.portrait-thread path');
+const photoThreads = document.querySelectorAll('.about-photo .portrait-thread path');
+const heroThread = document.querySelector('.cover .portrait-thread');;
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 let frame;
 
@@ -22,15 +23,17 @@ function drawThread() {
 
   for (const photoPath of photoThreads) {
     const photoTop = photoPath.ownerSVGElement.getBoundingClientRect().top;
-    const isHero = photoPath.closest('.cover');
     const delay = photoPath.classList.contains('thread-echo') ? (photoPath.previousElementSibling.classList.contains('thread-echo') ? 0.22 : 0.12) : 0;
-    const distance = isHero ? (0.67 - delay) * height - photoTop : (0.45 - delay) * height - photoTop;
+    const distance = (0.45 - delay) * height - photoTop;
     const reveal = reducedMotion.matches
       ? 1
-      : Math.min(1, Math.max(0, distance / (height * (isHero ? 1.05 : 0.7))));
+      : Math.min(1, Math.max(0, distance / (height * 0.7)));
     photoPath.style.strokeDasharray = '100';
     photoPath.style.strokeDashoffset = String(100 * (1 - reveal));
   }
+
+  const drift = reducedMotion.matches ? 0 : Math.min(1, Math.max(0, window.scrollY / height));
+  heroThread.style.transform = 'translateY(' + (drift * -12) + 'px) rotate(' + (drift * 1.2) + 'deg)';
 
   const scrollProgress = Math.min(1, Math.max(0, (height * 0.75 - top) / (height * 0.56)));
   const progress = reducedMotion.matches ? 1 : scrollProgress ** 1.25;
