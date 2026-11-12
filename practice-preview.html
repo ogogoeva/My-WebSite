@@ -9,7 +9,7 @@
 
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <meta name="robots" content="noindex">
-<link rel="stylesheet" href="practice-preview.css">
+<link rel="stylesheet" href="practice-preview.css?v=full-site">
 </head>
 <body class="practice-preview">
 <a class="skip" href="#main">К содержанию</a>
@@ -275,6 +275,7 @@
     const paused = motionButton.getAttribute('aria-pressed') === 'true';
     motionButton.setAttribute('aria-pressed', String(!paused));
     document.querySelector('.preview-track').classList.toggle('is-paused', !paused);
+    motionButton.textContent = paused ? 'Пауза' : 'Продолжить';
   });
 </script>
 </body>

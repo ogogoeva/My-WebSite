@@ -8,8 +8,9 @@
 <link rel="stylesheet" href="style.css?v=neutral-design">
 
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="stylesheet" href="practice-preview.css?v=full-site">
 </head>
-<body>
+<body class="practice-preview">
 <a class="skip" href="#main">К содержанию</a>
 <header class="wrap top">
   <a class="brand" href="#main">Анастасия Гоева<span>Клинический и семейный психолог</span></a>
@@ -32,6 +33,10 @@
       </svg>
     </figure>
   </section>
+  <div class="preview-topics">
+    <div class="preview-track"><div><span>Тревога</span><span>Панические атаки</span><span>Расстройства пищевого поведения</span><span>Выгорание</span><span>Отношения в паре</span><span>Личные границы</span></div><div aria-hidden="true"><span>Тревога</span><span>Панические атаки</span><span>Расстройства пищевого поведения</span><span>Выгорание</span><span>Отношения в паре</span><span>Личные границы</span></div></div>
+    <button type="button" class="preview-motion" aria-pressed="false">Пауза</button>
+  </div>
 
 <section class="wrap split section" id="about" aria-labelledby="about-title">
   <h2 class="about-heading" id="about-title">Гоева Анастасия</h2>
@@ -259,5 +264,14 @@
 </main>
 <footer class="wrap foot"><span>Анастасия Гоева · Клинический и семейный психолог</span><a href="#main">К началу ↑</a></footer>
 <script src="topic-thread.js?v=matched-portraits" defer></script>
+<script>
+  const motionButton = document.querySelector('.preview-motion');
+  motionButton.addEventListener('click', () => {
+    const paused = motionButton.getAttribute('aria-pressed') === 'true';
+    motionButton.setAttribute('aria-pressed', String(!paused));
+    document.querySelector('.preview-track').classList.toggle('is-paused', !paused);
+    motionButton.textContent = paused ? 'Пауза' : 'Продолжить';
+  });
+</script>
 </body>
 </html>

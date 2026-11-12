@@ -59,3 +59,43 @@
   .preview-track > div { flex-wrap: wrap; justify-content: center; gap: .4rem; padding-inline: .6rem; }
   .preview-track span::after { margin-inline: .45rem; }
 }
+
+.practice-preview {
+  --paper: #faf7ee;
+  --ink: #243a2e;
+  --olive: #344c3b;
+  --muted: #4c5b4d;
+  --rule: #c9c9b8;
+  --wash: #efe9db;
+}
+.practice-preview .section { padding-block: clamp(3.5rem, 8vw, 7rem); }
+.practice-preview .section h2 { font-size: clamp(2.5rem, 5.7vw, 5rem); max-width: 16ch; }
+.practice-preview #about .about-photo { border-radius: .2rem; }
+.practice-preview #about .about-copy { font-size: clamp(1rem, 1.5vw, 1.2rem); }
+.practice-preview #topics .topic-grid,
+.practice-preview #interviews .resource-grid { margin-top: 2rem; }
+.practice-preview .topic-card,
+.practice-preview .methods > div {
+  background: transparent;
+  border: 0;
+  border-top: 1px solid var(--rule);
+  border-radius: 0;
+  padding-inline: 0;
+}
+.practice-preview .prices article {
+  background: transparent;
+  border-color: var(--rule);
+  border-radius: .3rem;
+}
+.practice-preview .prices .price { font-size: clamp(2.5rem, 5vw, 3.8rem); }
+.practice-preview :is(#rules, #faq) > .section { border-top: 1px solid var(--rule); }
+.practice-preview .channel-card { background: var(--wash); border-radius: .3rem; }
+.practice-preview #resources .resource-card {
+  border-radius: .3rem;
+  grid-template-columns: minmax(0, 1fr) clamp(4.25rem, 12vw, 9rem);
+}
+.practice-preview .book-entry { border-radius: .3rem; }
+.practice-preview .closing { background: var(--olive); }
+@media (min-width: 651px) {
+  .practice-preview .video-card:nth-child(2) { margin-top: 2rem; }
+}
