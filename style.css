@@ -289,12 +289,12 @@ summary:hover { color: var(--wine); }
 .resource-card:nth-child(even) .resource-cover { transform: rotate(-3deg); }
 
 
-/* Cream paper, monochrome photography and red editorial accents */
+/* Cream paper and handwritten headings */
 .hero .intro { padding-block: 1rem; }
 .hero h1 { font-weight: 400; line-height: .98; }
 .hero h1 em { display: inline-block; margin-inline-start: .15em; letter-spacing: -.075em; font-weight: 400; }
 .cover { padding: .45rem; border-radius: .25rem; background: #fbf7ed; box-shadow: none; }
-.cover img, .about-portrait { filter: grayscale(1); border-radius: .12rem; }
+.cover img, .about-portrait { border-radius: .12rem; }
 #about { background: #fdfaf2; border: 1px solid var(--rule); border-radius: .25rem; }
 .about-heading { grid-column: 1; }
 .about-heading h2 { font-size: clamp(2.5rem, 5.3vw, 5rem); }
@@ -312,3 +312,24 @@ summary:hover { color: var(--wine); }
   .about-heading, .about-copy, .about-portrait { grid-column: 1; grid-row: auto; }
   .about-portrait { justify-self: start; width: min(100%, 22rem); }
 }
+
+@font-face {
+  font-family: "Marck Script";
+  src: url("fonts/MarckScript-Regular.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+:root { --handwritten: "Marck Script", Georgia, serif; }
+.hero h1 em {
+  font-family: var(--handwritten);
+  font-style: normal;
+  letter-spacing: -.045em;
+  margin-inline-start: 0;
+}
+section h2 {
+  font-family: var(--handwritten);
+  letter-spacing: -.02em;
+  color: var(--wine);
+}
+.closing h2 { color: #fff4e8; }
