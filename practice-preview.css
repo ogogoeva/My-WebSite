@@ -113,3 +113,15 @@
   accent-color: var(--olive);
 }
 .preview-audio audio::-webkit-media-controls-panel { background-color: var(--wash); }
+
+.approach-editorial { display: grid; grid-template-columns: 1.1fr 1fr; align-items: center; gap: clamp(1rem, 5vw, 4rem); }
+.feelings-collage { position: relative; width: min(100%, 24rem); margin: 0 auto; }
+.feelings-collage img, .knitting-collage { display: block; width: 100%; height: auto; }
+.feelings-collage figcaption { position: absolute; inset: 7% 4% auto; display: flex; flex-wrap: wrap; justify-content: space-between; gap: .3rem; color: #7a3435; }
+.feelings-collage figcaption span { background: var(--paper); border: 1px solid currentColor; border-radius: 50%; padding: .14rem .45rem; font: italic clamp(.8rem, 2vw, 1.1rem)/1.2 var(--serif); }
+.knitting-collage { width: min(100%, 24rem); margin: 1.2rem auto 0; }
+#resources .resource-cover { border: 0; box-shadow: none; transform: none; align-self: center; }
+@media (max-width: 650px) {
+  .approach-editorial { grid-template-columns: minmax(0, 1fr); }
+  .feelings-collage, .knitting-collage { max-width: 18rem; }
+}
