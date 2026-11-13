@@ -459,3 +459,18 @@
 @media (min-width: 751px) {
   #interviews .video-caption small { display: none; }
 }
+
+@media (max-width: 750px) {
+  .practice-preview { font: 16px/1.55 "Golos Text", system-ui, sans-serif; }
+  .practice-preview .hero h1 { font-size: min(2.5rem, 14cqw); }
+  .practice-preview .section h2 { font-size: 2rem; max-width: none; }
+  .practice-preview .section :is(h3, h4, dt),
+  .practice-preview #books .book-copy h3 { font: 600 1.4rem/1.2 var(--serif); }
+  .practice-preview .section :is(p:not(.price), dd, summary),
+  .practice-preview .hero .lede { font: inherit; }
+  .practice-preview .section summary { font-weight: 600; }
+  .practice-preview .section :is(.button, .resource-action, .video-caption small) {
+    font-family: inherit;
+    font-size: .875rem;
+  }
+}
