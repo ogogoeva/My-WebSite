@@ -365,3 +365,30 @@
 }
 .about-visual .preview-audio summary::after { content: none; }
 .about-visual .preview-audio audio { margin-top: .55rem; }
+
+.top nav a { position: relative; }
+.top nav a::before {
+  content: "";
+  position: absolute;
+  inset: -4px -6px;
+  border: 1px solid #8b4d49;
+  border-radius: 52% 46% 49% 44% / 48% 54% 42% 52%;
+  transform: rotate(-4deg);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .2s ease;
+}
+.top nav a:is(:hover, :focus-visible) { text-decoration: none; }
+.top nav a:is(:hover, :focus-visible)::before { opacity: 1; }
+
+.practice-preview #about { padding-block: clamp(1.6rem, 4svh, 3rem); row-gap: .7rem; }
+#about .about-copy { align-self: start; }
+#about .about-visual { width: min(100%, 24rem, 41svh); }
+#about .preview-audio summary { padding-inline: .72rem; font-size: .82rem; }
+#about .voice-thread { height: 24px; }
+@media (max-width: 650px) {
+  #about .about-visual { width: min(100%, 18rem); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .top nav a::before { transition: none; }
+}
