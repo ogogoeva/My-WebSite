@@ -461,3 +461,27 @@
 }
 
 .education-certificates { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .5rem; }
+
+.education-viewer {
+  width: min(94vw, 64rem);
+  max-height: 94dvh;
+  padding: .8rem;
+  border: 1px solid var(--rule);
+  border-radius: 1rem;
+  background: var(--paper);
+  color: var(--ink);
+}
+.education-viewer::backdrop { background: #202b23c9; }
+.education-viewer-controls { display: flex; align-items: center; gap: .55rem; margin-bottom: .6rem; }
+.education-viewer-controls form { margin-inline-start: auto; }
+.education-viewer-controls button {
+  min-height: 44px;
+  min-width: 44px;
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+  padding: .4rem .8rem;
+  background: var(--wash);
+  color: inherit;
+  cursor: pointer;
+}
+.education-viewer img { display: block; width: 100%; max-height: 78dvh; object-fit: contain; }
