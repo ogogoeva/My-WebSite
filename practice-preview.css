@@ -485,3 +485,17 @@
   cursor: pointer;
 }
 .education-viewer img { display: block; width: 100%; max-height: 78dvh; object-fit: contain; }
+
+.education-viewer-controls [data-step] {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1;
+}
+.education-viewer-controls [data-step="-1"] { inset-inline-start: .8rem; }
+.education-viewer-controls [data-step="1"] { inset-inline-end: .8rem; }
+.education-viewer:has([data-step]:not([hidden])) img {
+  width: calc(100% - 5.5rem);
+  margin-inline: auto;
+}
+.education-viewer-controls form button { font-size: 1.5rem; line-height: 1; }
