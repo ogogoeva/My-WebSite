@@ -572,3 +572,12 @@
   #books .book-copy p:not(.book-author) { display: none; }
   #books .book-copy .resource-action { padding-inline: 0; background: transparent; text-decoration: underline; }
 }
+
+@media (min-width: 751px) {
+  #books .book-copy p:not(.book-author) { display: block; font-size: .86rem; }
+  #books .book-cover { object-fit: contain; }
+}
+@media (min-width: 1100px) {
+  #books .book-grid { grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 1rem; }
+  #books .book-copy h3 { font-size: 1rem; }
+}
