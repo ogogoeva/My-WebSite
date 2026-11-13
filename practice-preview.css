@@ -459,3 +459,5 @@
 @media (min-width: 751px) {
   #interviews .video-caption small { display: none; }
 }
+
+.education-certificates { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .5rem; }
