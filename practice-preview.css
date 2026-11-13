@@ -388,3 +388,8 @@
 @media (prefers-reduced-motion: reduce) {
   .top nav a::before { transition: none; }
 }
+
+.practice-preview .hero .cover { scale: 1.06; }
+@media (max-width: 650px) {
+  .practice-preview .hero .cover { scale: 1.025; }
+}
