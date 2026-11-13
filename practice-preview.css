@@ -383,12 +383,8 @@
 
 .practice-preview #about { padding-block: clamp(1.6rem, 4svh, 3rem); row-gap: .7rem; }
 #about .about-copy { align-self: start; }
-#about .about-visual { width: min(100%, 24rem, 41svh); }
 #about .preview-audio summary { padding-inline: .72rem; font-size: .82rem; }
 #about .voice-thread { height: 24px; }
-@media (max-width: 650px) {
-  #about .about-visual { width: min(100%, 18rem); }
-}
 @media (prefers-reduced-motion: reduce) {
   .top nav a::before { transition: none; }
 }
