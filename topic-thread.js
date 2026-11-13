@@ -1,4 +1,5 @@
-const thread = document.querySelector('.topic-thread');
+const thread = document.querySelector('.topic-thread:not(.mobile-topic-thread)');
+const mobileThread = document.querySelector('.mobile-topic-thread');
 const strands = [...thread.querySelectorAll('path')].map((path) => {
   const length = path.getTotalLength();
   const points = Array.from({ length: 181 }, (_, index) => path.getPointAtLength(length * index / 180));
@@ -12,7 +13,7 @@ let frame;
 
 function drawThread() {
   frame = undefined;
-  const top = thread.getBoundingClientRect().top;
+  const top = (mobileThread.getClientRects().length ? mobileThread : thread).getBoundingClientRect().top;
   const height = window.innerHeight;
   const timeline = education.getBoundingClientRect();
   const timelineProgress = reducedMotion.matches
@@ -47,7 +48,9 @@ function drawThread() {
       const y = point.y + (targetY - point.y) * release;
       return x.toFixed(1) + ' ' + y.toFixed(1);
     });
-    path.setAttribute('d', 'M' + line.join(' L'));
+    const drawing = 'M' + line.join(' L');
+    path.setAttribute('d', drawing);
+    mobileThread.children[strandIndex].setAttribute('d', drawing);
   }
 }
 
@@ -128,3 +131,11 @@ if ('IntersectionObserver' in window) {
   });
   voiceReveal.observe(voiceButton);
 }
+
+const extraVideos = document.querySelector('.extra-videos');
+const mobileVideoLayout = window.matchMedia('(max-width: 750px)');
+function syncVideoLayout() {
+  extraVideos.open = !mobileVideoLayout.matches;
+}
+mobileVideoLayout.addEventListener('change', syncVideoLayout);
+syncVideoLayout();
