@@ -96,3 +96,28 @@ if ('IntersectionObserver' in window) {
   });
   heroObserver.observe(heroThread.closest('.cover'));
 }
+
+const aboutSection = document.querySelector('#about');
+const aboutPortrait = aboutSection.querySelector('.about-portrait');
+const voiceButton = aboutSection.querySelector('.preview-audio summary');
+const voicePath = aboutSection.querySelector('.voice-thread path');
+
+function connectVoiceToPortrait() {
+  const section = aboutSection.getBoundingClientRect();
+  const portrait = aboutPortrait.getBoundingClientRect();
+  const button = voiceButton.getBoundingClientRect();
+  const startX = portrait.left - section.left + portrait.width * .57;
+  const startY = portrait.top - section.top + portrait.height * .25;
+  const endX = button.left - section.left;
+  const endY = button.top - section.top + button.height / 2;
+  const bendX = endX > startX ? (startX + endX) / 2 : Math.min(section.width - 5, portrait.right - section.left);
+  voicePath.setAttribute('d', `M${startX} ${startY} C${bendX} ${startY} ${bendX} ${endY} ${endX} ${endY}`);
+}
+
+connectVoiceToPortrait();
+if ('ResizeObserver' in window) {
+  const voiceObserver = new ResizeObserver(connectVoiceToPortrait);
+  voiceObserver.observe(aboutSection);
+  voiceObserver.observe(aboutPortrait);
+  voiceObserver.observe(voiceButton);
+}
