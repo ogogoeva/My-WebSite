@@ -530,3 +530,29 @@
   stroke-linecap: round;
   stroke-linejoin: round;
 }
+
+@media (max-width: 750px) {
+  .practice-preview #topics .topic-card { border: 0; }
+}
+@media (min-width: 751px) {
+  #books .book-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(1rem, 3vw, 2.5rem); }
+  .practice-preview #books .book-entry {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto 1fr;
+    border: 0;
+    padding: 0;
+    background: transparent;
+  }
+  #books .book-cover {
+    grid-area: 1 / 1;
+    height: clamp(12rem, 23vw, 18rem);
+    width: auto;
+    max-width: 100%;
+    object-fit: contain;
+    justify-self: center;
+    border: 0;
+    padding: 0;
+  }
+  #books .book-copy { grid-area: 2 / 1; grid-template-rows: auto auto 1fr auto; }
+  #books .book-copy h3 { font-size: clamp(1.5rem, 2.6vw, 2.15rem); }
+}
