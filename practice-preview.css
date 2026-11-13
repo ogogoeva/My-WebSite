@@ -206,11 +206,6 @@
   border: 1px solid var(--image-edge);
   border-radius: var(--portrait-radius);
 }
-.practice-preview .cover img,
-.practice-preview .about-portrait,
-.practice-preview .channel-portrait {
-  filter: saturate(.48) sepia(.16) contrast(.94);
-}
 .practice-preview .cover::after,
 .practice-preview .about-photo::after {
   content: "";
