@@ -413,7 +413,7 @@
 @media (prefers-reduced-motion: no-preference) {
   #about .voice-thread path.is-drawn {
     stroke-dasharray: 100;
-    animation: voice-thread-draw 1.8s ease-in-out both;
+    animation: hero-thread-draw 8s ease-in-out infinite both;
     animation-timeline: auto;
   }
 }

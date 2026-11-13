@@ -123,11 +123,8 @@ if ('ResizeObserver' in window) {
 }
 
 if ('IntersectionObserver' in window) {
-  const voiceReveal = new IntersectionObserver(([entry], observer) => {
-    if (entry.isIntersecting) {
-      voicePath.classList.add('is-drawn');
-      observer.disconnect();
-    }
+  const voiceReveal = new IntersectionObserver(([entry]) => {
+    voicePath.classList.toggle('is-drawn', entry.isIntersecting);
   });
   voiceReveal.observe(voiceButton);
 }
