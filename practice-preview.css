@@ -455,3 +455,7 @@
   .practice-preview main > .preview-topics { display: none; }
   .preview-topics.mobile-ticker { display: block; margin: .65rem -18px 0; }
 }
+
+@media (min-width: 751px) {
+  #interviews .video-caption small { display: none; }
+}
