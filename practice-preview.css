@@ -499,3 +499,22 @@
   margin-inline: auto;
 }
 .education-viewer-controls form button { font-size: 1.5rem; line-height: 1; }
+
+.education-viewer-controls [data-step] {
+  border: 0;
+  background: transparent;
+  font-size: 1.5rem;
+}
+.education-viewer-dots:not([hidden]) {
+  display: flex;
+  justify-content: center;
+  gap: .5rem;
+  padding-top: .65rem;
+}
+.education-viewer-dots span {
+  width: .45rem;
+  height: .45rem;
+  border-radius: 50%;
+  background: var(--rule);
+}
+.education-viewer-dots .is-current { background: var(--olive); }

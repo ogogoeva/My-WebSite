@@ -1,6 +1,6 @@
 const viewer = document.querySelector('.education-viewer');
 const image = viewer.querySelector('img');
-const count = viewer.querySelector('.education-viewer-count');
+const dots = viewer.querySelector('.education-viewer-dots');
 const controls = [...viewer.querySelectorAll('[data-step]')];
 let documents = [];
 let index = 0;
@@ -9,7 +9,12 @@ function showDocument() {
   const link = documents[index];
   image.alt = link.querySelector('img').alt;
   image.src = link.href;
-  count.textContent = documents.length > 1 ? (index + 1) + ' / ' + documents.length : '';
+  dots.hidden = documents.length < 2;
+  dots.replaceChildren(...documents.map((_, position) => {
+    const dot = document.createElement('span');
+    dot.classList.toggle('is-current', position === index);
+    return dot;
+  }));
   controls.forEach(button => { button.hidden = documents.length < 2; });
 }
 
