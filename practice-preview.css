@@ -518,3 +518,15 @@
   background: var(--rule);
 }
 .education-viewer-dots .is-current { background: var(--olive); }
+
+.education-viewer-controls button {
+  border: 0;
+  background: transparent;
+}
+.education-viewer-controls svg { display: block; margin: auto; }
+.education-viewer-controls svg path {
+  stroke: currentColor;
+  stroke-width: 1.4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
