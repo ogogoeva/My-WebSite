@@ -408,3 +408,12 @@
 }
 #about .about-copy .preview-audio summary::after { content: none; }
 #about .voice-thread { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 1; pointer-events: none; }
+
+#about .voice-thread path { animation: none; }
+@media (prefers-reduced-motion: no-preference) {
+  #about .voice-thread path.is-drawn {
+    stroke-dasharray: 100;
+    animation: voice-thread-draw 1.8s ease-in-out both;
+    animation-timeline: auto;
+  }
+}

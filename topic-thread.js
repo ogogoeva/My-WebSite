@@ -111,7 +111,7 @@ function connectVoiceToPortrait() {
   const endX = button.left - section.left;
   const endY = button.top - section.top + button.height / 2;
   const bendX = endX > startX ? (startX + endX) / 2 : Math.min(section.width - 5, portrait.right - section.left);
-  voicePath.setAttribute('d', `M${startX} ${startY} C${bendX} ${startY} ${bendX} ${endY} ${endX} ${endY}`);
+  voicePath.setAttribute('d', `M${startX} ${startY} C${bendX} ${startY - 12} ${bendX} ${endY} ${endX} ${endY}`);
 }
 
 connectVoiceToPortrait();
@@ -120,4 +120,14 @@ if ('ResizeObserver' in window) {
   voiceObserver.observe(aboutSection);
   voiceObserver.observe(aboutPortrait);
   voiceObserver.observe(voiceButton);
+}
+
+if ('IntersectionObserver' in window) {
+  const voiceReveal = new IntersectionObserver(([entry], observer) => {
+    if (entry.isIntersecting) {
+      voicePath.classList.add('is-drawn');
+      observer.disconnect();
+    }
+  });
+  voiceReveal.observe(voiceButton);
 }
