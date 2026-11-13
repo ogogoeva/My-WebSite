@@ -417,3 +417,7 @@
     animation-timeline: auto;
   }
 }
+
+#about .about-copy .preview-audio summary,
+#about .about-copy .preview-audio audio { width: 100%; }
+#about .about-copy .preview-audio summary { justify-content: center; }
