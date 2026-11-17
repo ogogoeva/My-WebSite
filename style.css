@@ -347,3 +347,31 @@ h1, h2, h3, dt { font-weight: 600; }
     align-items: stretch;
   }
 }
+
+.site-footer {
+  display: grid;
+  gap: 1rem;
+  border-top: 1px solid var(--rule);
+}
+
+.footer-links, .footer-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: .35rem 1.4rem;
+}
+
+.footer-links a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  color: var(--ink);
+}
+
+.footer-meta {
+  justify-content: space-between;
+}
+
+.footer-meta a {
+  white-space: nowrap;
+}
