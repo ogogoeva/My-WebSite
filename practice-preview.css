@@ -601,10 +601,9 @@ html[lang="en"] #session .price-usdt {
 }
 .top .brand .brand-copy { margin: 0; color: inherit; font: inherit; }
 .top .brand .brand-copy > span { display: block; }
-.language-switch { justify-self: center; gap: 2px; padding: 3px; border: 1px solid var(--rule); border-radius: 999px; background: var(--paper); }
-.language-switch > a, .language-switch > [aria-current] { min-width: 49px; min-height: 40px; }
+.language-switch { justify-self: center; gap: 1px; padding: 2px; font-size: .75rem; border: 1px solid var(--rule); border-radius: 999px; background: var(--paper); }
+.language-switch > a, .language-switch > [aria-current] { min-width: 36px; min-height: 30px; }
 .language-switch > [aria-current] { background: var(--olive); color: var(--paper); }
 @media (max-width: 750px) {
   .top .brand { justify-content: center; text-align: start; }
-  .language-switch > a, .language-switch > [aria-current] { min-height: 44px; }
 }
