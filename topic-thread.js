@@ -139,3 +139,9 @@ function syncVideoLayout() {
 }
 mobileVideoLayout.addEventListener('change', syncVideoLayout);
 syncVideoLayout();
+
+document.querySelector('.language-switch a').addEventListener('click', event => {
+  const destination = new URL(event.currentTarget.href);
+  destination.hash = window.location.hash;
+  event.currentTarget.href = destination.href;
+});
