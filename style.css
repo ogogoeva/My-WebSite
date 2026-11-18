@@ -382,3 +382,16 @@ h1, h2, h3, dt { font-weight: 600; }
   font: 600 .85rem/1.35 "Golos Text", sans-serif;
   overflow-wrap: anywhere;
 }
+
+#books .book-cover-link {
+  display: block;
+  min-width: 0;
+  grid-area: 1 / 1;
+  align-self: start;
+  border-radius: .85rem;
+}
+
+#books .book-cover-link:focus-visible {
+  outline: 2px solid var(--olive);
+  outline-offset: 4px;
+}
