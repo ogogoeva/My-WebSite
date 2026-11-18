@@ -371,3 +371,14 @@ h1, h2, h3, dt { font-weight: 600; }
   height: auto;
   margin: 0 auto;
 }
+
+.methods .method-name {
+  display: block;
+  width: fit-content;
+  margin-block: .35rem .65rem;
+  padding: .35rem .7rem;
+  border-radius: 1rem;
+  background: #eee8d9;
+  font: 600 .85rem/1.35 "Golos Text", sans-serif;
+  overflow-wrap: anywhere;
+}
