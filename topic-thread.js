@@ -167,13 +167,13 @@ if (backToTop) {
 const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
 if (mobileMenuToggle) {
   const navigation = document.getElementById(mobileMenuToggle.getAttribute('aria-controls'));
-  const navLinks = [...navigation.querySelectorAll('a')];
-  const menuIcon = mobileMenuToggle.querySelector('span');
+  const navLinks = [...navigation.querySelectorAll(':scope > a')];
+  const background = document.querySelectorAll('main, .site-credit, .site-footer, .back-to-top, .skip');
   const isOpen = () => mobileMenuToggle.getAttribute('aria-expanded') === 'true';
 
   function setMenu(open) {
     mobileMenuToggle.setAttribute('aria-expanded', String(open));
-    menuIcon.textContent = open ? '×' : '☰';
+    for (const element of background) element.inert = open;
     if (open) {
       for (const link of navLinks) {
         if (link.hash === location.hash) link.setAttribute('aria-current', 'location');
@@ -184,7 +184,10 @@ if (mobileMenuToggle) {
 
   mobileMenuToggle.addEventListener('click', () => setMenu(!isOpen()));
   navigation.addEventListener('click', event => {
-    if (event.target.closest('a')) setMenu(false);
+    if (event.target.closest('a')) {
+      setMenu(false);
+      mobileMenuToggle.focus({ preventScroll: true });
+    }
   });
   document.addEventListener('click', event => {
     if (isOpen() && !navigation.contains(event.target) && !mobileMenuToggle.contains(event.target)) {
