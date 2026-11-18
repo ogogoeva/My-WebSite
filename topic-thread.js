@@ -167,18 +167,35 @@ if (backToTop) {
 const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
 if (mobileMenuToggle) {
   const navigation = document.getElementById(mobileMenuToggle.getAttribute('aria-controls'));
-  const setMenu = open => mobileMenuToggle.setAttribute('aria-expanded', String(open));
+  const navLinks = [...navigation.querySelectorAll('a')];
+  const menuIcon = mobileMenuToggle.querySelector('span');
+  const isOpen = () => mobileMenuToggle.getAttribute('aria-expanded') === 'true';
 
-  mobileMenuToggle.addEventListener('click', () => {
-    setMenu(mobileMenuToggle.getAttribute('aria-expanded') !== 'true');
-  });
+  function setMenu(open) {
+    mobileMenuToggle.setAttribute('aria-expanded', String(open));
+    menuIcon.textContent = open ? '×' : '☰';
+    if (open) {
+      for (const link of navLinks) {
+        if (link.hash === location.hash) link.setAttribute('aria-current', 'location');
+        else link.removeAttribute('aria-current');
+      }
+    }
+  }
+
+  mobileMenuToggle.addEventListener('click', () => setMenu(!isOpen()));
   navigation.addEventListener('click', event => {
     if (event.target.closest('a')) setMenu(false);
   });
-  mobileMenuToggle.closest('header').addEventListener('keydown', event => {
-    if (event.key === 'Escape' && mobileMenuToggle.getAttribute('aria-expanded') === 'true') {
+  document.addEventListener('click', event => {
+    if (isOpen() && !navigation.contains(event.target) && !mobileMenuToggle.contains(event.target)) {
+      setMenu(false);
+    }
+  });
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Escape' && isOpen()) {
       setMenu(false);
       mobileMenuToggle.focus();
     }
   });
+  window.matchMedia('(max-width: 750px)').addEventListener('change', () => setMenu(false));
 }

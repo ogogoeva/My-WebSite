@@ -677,8 +677,10 @@ html[lang="en"] #session .price-usdt {
     position: absolute;
     top: calc(100% + .35rem);
     right: 0;
-    width: min(100%, 18rem);
-    max-height: 65dvh;
+    left: 0;
+    width: 100%;
+    max-height: min(65dvh, calc(100dvh - var(--sticky-header-height, 6rem) - 1rem));
+    overscroll-behavior: contain;
     overflow-y: auto;
     display: grid;
     gap: 0;
@@ -689,10 +691,19 @@ html[lang="en"] #session .price-usdt {
     box-shadow: 0 .4rem 1.25rem #263c2d24;
   }
   .top #site-navigation a {
-    justify-content: flex-start;
-    min-height: 48px;
-    padding: .6rem .55rem;
+    justify-content: space-between;
+    min-height: 52px;
+    padding: .65rem .85rem;
+    font-size: .95rem;
+    touch-action: manipulation;
   }
+  .top #site-navigation a::before { display: none; }
+  .top #site-navigation a::after { content: "›" / ""; color: var(--olive); }
+  .top #site-navigation a[aria-current="location"] {
+    background: var(--wash);
+    font-weight: 650;
+  }
+  .top .mobile-menu-toggle[aria-expanded="true"] { background: var(--wash); }
   .top #site-navigation a + a { border-top: 1px solid var(--rule); }
   .top .mobile-menu-toggle[aria-expanded="false"] + #site-navigation { display: none; }
 }
