@@ -421,7 +421,6 @@
 .practice-preview .mobile-price-action,
 .practice-preview .mobile-topic-thread { display: none; }
 @media (max-width: 750px) {
-  .practice-preview .hero .hero-action,
   .practice-preview #session .prices .button,
   .practice-preview #topics > .topic-thread { display: none; }
   .practice-preview .mobile-hero-action { display: flex; margin: .75rem 18px 0; }
@@ -606,4 +605,26 @@ html[lang="en"] #session .price-usdt {
 .language-switch > [aria-current] { background: var(--olive); color: var(--paper); }
 @media (max-width: 750px) {
   .top .brand { justify-content: center; text-align: start; }
+  .top nav a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 44px;
+    min-height: 44px;
+  }
+  .language-switch > a, .language-switch > [aria-current] {
+    position: relative;
+    min-width: 44px;
+    min-height: 44px;
+    isolation: isolate;
+  }
+  .language-switch > [aria-current] { background: transparent; }
+  .language-switch > [aria-current]::before {
+    content: "";
+    position: absolute;
+    inset: 7px 4px;
+    z-index: -1;
+    border-radius: 999px;
+    background: var(--olive);
+  }
 }
