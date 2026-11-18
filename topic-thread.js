@@ -152,3 +152,14 @@ if (stickyHeader && 'ResizeObserver' in window) {
     document.documentElement.style.setProperty('--sticky-header-height', `${stickyHeader.offsetHeight}px`);
   }).observe(stickyHeader);
 }
+
+const backToTop = document.querySelector('.back-to-top');
+if (backToTop) {
+  function updateBackToTop() {
+    backToTop.hidden = window.scrollY < window.innerHeight;
+  }
+  window.addEventListener('scroll', updateBackToTop, { passive: true });
+  window.addEventListener('resize', updateBackToTop);
+  window.addEventListener('pageshow', updateBackToTop);
+  updateBackToTop();
+}

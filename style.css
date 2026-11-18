@@ -447,3 +447,5 @@ html {
 }
 
 .site-footer { padding-bottom: 4.5rem; }
+
+.back-to-top[hidden] { display: none; }
