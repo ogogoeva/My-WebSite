@@ -411,3 +411,39 @@ h1, h2, h3, dt { font-weight: 600; }
 
 #books .book-cover-link { text-decoration: none; }
 #books .book-cover-link:hover .book-store { text-decoration: underline; }
+
+html {
+  scroll-padding-top: calc(var(--sticky-header-height, 9rem) + .5rem);
+}
+
+.top {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: var(--paper);
+  box-shadow: 0 1px var(--rule);
+}
+
+.skip:focus { z-index: 12; }
+
+.back-to-top {
+  position: fixed;
+  z-index: 9;
+  inset-inline-end: max(.85rem, env(safe-area-inset-right));
+  bottom: max(.85rem, env(safe-area-inset-bottom));
+  display: inline-flex;
+  align-items: center;
+  gap: .45rem;
+  min-height: 44px;
+  padding-inline: .8rem;
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+  background: var(--paper);
+  color: var(--olive);
+  font-size: .78rem;
+  font-weight: 650;
+  box-shadow: 0 .2rem .75rem #263c2d20;
+  text-decoration: none;
+}
+
+.site-footer { padding-bottom: 4.5rem; }

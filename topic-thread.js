@@ -145,3 +145,10 @@ document.querySelector('.language-switch a').addEventListener('click', event => 
   destination.hash = window.location.hash;
   event.currentTarget.href = destination.href;
 });
+
+const stickyHeader = document.querySelector('header.top');
+if (stickyHeader && 'ResizeObserver' in window) {
+  new ResizeObserver(() => {
+    document.documentElement.style.setProperty('--sticky-header-height', `${stickyHeader.offsetHeight}px`);
+  }).observe(stickyHeader);
+}
