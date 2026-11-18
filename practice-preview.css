@@ -647,3 +647,25 @@ html[lang="en"] #session .price-usdt {
     color: var(--paper);
   }
 }
+
+.mobile-menu-toggle { display: none; }
+
+@media (max-width: 750px) {
+  .top { grid-template-columns: minmax(0, 1fr) auto auto; }
+  .top .language-switch { align-self: center; }
+  .top .mobile-menu-toggle {
+    display: grid;
+    grid-area: 1 / 3;
+    place-items: center;
+    width: 44px;
+    height: 44px;
+    border: 1px solid var(--rule);
+    border-radius: 50%;
+    background: var(--paper);
+    color: var(--olive);
+    font-size: 1.2rem;
+    cursor: pointer;
+  }
+  .top .mobile-menu-toggle[aria-expanded="false"] + nav { display: none; }
+  .top nav .desktop-nav-link { display: inline-flex; }
+}

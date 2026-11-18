@@ -163,3 +163,22 @@ if (backToTop) {
   window.addEventListener('pageshow', updateBackToTop);
   updateBackToTop();
 }
+
+const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+if (mobileMenuToggle) {
+  const navigation = document.getElementById(mobileMenuToggle.getAttribute('aria-controls'));
+  const setMenu = open => mobileMenuToggle.setAttribute('aria-expanded', String(open));
+
+  mobileMenuToggle.addEventListener('click', () => {
+    setMenu(mobileMenuToggle.getAttribute('aria-expanded') !== 'true');
+  });
+  navigation.addEventListener('click', event => {
+    if (event.target.closest('a')) setMenu(false);
+  });
+  mobileMenuToggle.closest('header').addEventListener('keydown', event => {
+    if (event.key === 'Escape' && mobileMenuToggle.getAttribute('aria-expanded') === 'true') {
+      setMenu(false);
+      mobileMenuToggle.focus();
+    }
+  });
+}
