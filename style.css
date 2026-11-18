@@ -395,3 +395,19 @@ h1, h2, h3, dt { font-weight: 600; }
   outline: 2px solid var(--olive);
   outline-offset: 4px;
 }
+
+#books .book-store {
+  display: block;
+  width: fit-content;
+  max-width: 100%;
+  margin-top: .45rem;
+  padding: .2rem .45rem;
+  border-radius: .45rem;
+  background: var(--wash);
+  color: var(--ink);
+  font-size: .72rem;
+  line-height: 1.25;
+}
+
+#books .book-cover-link { text-decoration: none; }
+#books .book-cover-link:hover .book-store { text-decoration: underline; }
