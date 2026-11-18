@@ -422,7 +422,8 @@
 .practice-preview .mobile-topic-thread { display: none; }
 @media (max-width: 750px) {
   .practice-preview #topics > .topic-thread { display: none; }
-  .practice-preview .mobile-hero-action { display: flex; margin: .75rem 18px 0; }
+  .practice-preview .hero .intro .hero-action { display: none; }
+  .practice-preview .hero .mobile-hero-action { display: flex; margin: .75rem 0 0; }
   .practice-preview .mobile-topic-thread { display: block; height: 3rem; }
   .practice-preview #topics .topic-grid { grid-template-columns: 1fr; }
   #about .about-copy .preview-audio { width: 100%; }
