@@ -145,3 +145,15 @@ document.querySelector('.language-switch a').addEventListener('click', event => 
   destination.hash = window.location.hash;
   event.currentTarget.href = destination.href;
 });
+
+const menuToggle = document.querySelector('.mobile-menu-toggle');
+if (menuToggle) {
+  const siteNavigation = document.getElementById(menuToggle.getAttribute('aria-controls'));
+  menuToggle.addEventListener('click', () => {
+    const open = menuToggle.getAttribute('aria-expanded') === 'true';
+    menuToggle.setAttribute('aria-expanded', String(!open));
+  });
+  siteNavigation.addEventListener('click', event => {
+    if (event.target.closest('a')) menuToggle.setAttribute('aria-expanded', 'false');
+  });
+}
