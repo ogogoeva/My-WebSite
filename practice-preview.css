@@ -781,3 +781,16 @@ html[lang="en"] #session .price-usdt {
   .practice-preview .mobile-ticker { margin-top: .3rem; padding-block: .3rem; }
   .practice-preview .hero .mobile-hero-action { margin-top: -1.7rem; }
 }
+
+/* Full-width navigation, shared document icons, and centered mobile legal details. */
+.practice-preview .top { width: 100%; padding-inline: clamp(18px, 3.33vw, 48px); }
+.education-viewer-controls button { -webkit-appearance: none; appearance: none; display: inline-grid; place-items: center; padding: 0; min-width: 44px; min-height: 44px; border: 0; background: transparent; border-radius: 0; }
+.education-viewer-controls svg { width: 18px; height: 18px; }
+.education-viewer-controls svg path { stroke-width: 1.4; }
+@media (max-width: 750px) {
+ .site-footer, .site-footer .footer-meta { text-align: center; justify-content: center; align-items: center; justify-items: center; }
+ .site-footer .footer-meta { width: 100%; flex-direction: column; }
+ .site-footer .footer-identity { display: grid; gap: .3rem; }
+ .site-footer .footer-divider { display: none; }
+ .site-footer .privacy-link { justify-content: center; margin-inline: 0; }
+}
