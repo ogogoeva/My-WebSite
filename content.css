@@ -23,10 +23,20 @@
 .article-toc li { display:grid; grid-template-columns:1.4em minmax(0,1fr); align-items:start; gap:.3rem; }
 .article-toc .toc-number { padding-top:.25rem; line-height:1.6; font-variant-numeric:lining-nums; }
 .article-toc a { display:block; min-height:44px; line-height:1.6; }
-.site-footer { display:block; }
-.footer-resources { padding-bottom:1rem; margin-bottom:1rem; border-bottom:1px solid var(--rule); }
-.footer-resources > p { font-size:.9rem; font-weight:600; color:var(--olive); margin:0 0 .4rem; }
-.footer-resources ul { list-style:none; padding:0; margin:0; display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:.1rem 1.5rem; }
-.footer-resources a { display:inline-flex; align-items:center; min-height:44px; font-size:.9rem; text-decoration:none; text-underline-offset:.25em; }
+/* One concise identity row, privacy, then the resource links. */
+.site-footer { display:flex; flex-direction:column; gap:.25rem; padding-top:1.1rem; padding-bottom:4rem; }
+.site-footer .footer-meta { display:flex; flex-direction:row; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:0 1rem; width:100%; }
+.site-footer .footer-identity { display:inline; }
+.site-footer .footer-divider { display:inline; }
+.site-footer .footer-meta .privacy-link { margin-inline:0; }
+.footer-resources { padding:0; margin:0; border:0; width:100%; }
+.footer-resources ul { list-style:none; padding:0; margin:0; display:flex; flex-wrap:wrap; gap:0 1.5rem; }
+.footer-resources a { display:inline-flex; align-items:center; min-height:44px; font-size:.875rem; line-height:1.45; text-decoration:none; text-underline-offset:.25em; }
 .footer-resources a:hover { text-decoration:underline; }
-@media(max-width:750px) { .footer-resources {text-align:center} .footer-resources ul {grid-template-columns:1fr} .footer-resources a {justify-content:center} }
+@media(max-width:750px) {
+ .site-footer .footer-meta { flex-direction:column; justify-content:center; gap:0; }
+ .site-footer .footer-identity { text-align:center; }
+ .footer-resources ul { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:0 .8rem; }
+ .footer-resources li { min-width:0; text-align:center; }
+ .footer-resources a { justify-content:center; text-align:center; }
+}
