@@ -1,0 +1,2 @@
+/* Hide obsolete controls in previously cached pages. */
+.analytics-consent,.statistics-settings { display:none!important; }
