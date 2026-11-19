@@ -1,13 +1,17 @@
 <!doctype html>
 <html lang="en">
 <head>
+
+
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<style>.page-progress{display:none;position:fixed;inset:0 0 auto;height:5px;z-index:40;overflow:hidden;pointer-events:none;background:#faf7ee}html[data-slow-loading] .page-progress{display:block}.page-progress::after{content:"";display:block;width:35%;height:3px;border-radius:50%;background:#9c645a;animation:thread-progress 1.8s ease-in-out infinite}@keyframes thread-progress{from{transform:translateX(-110%)}to{transform:translateX(390%)}}@media(prefers-reduced-motion:reduce){.page-progress::after{animation:none;width:100%}}</style>
+<script>document.documentElement.dataset.pageLoading='true';var loadingDelay=setTimeout(function(){if(document.documentElement.dataset.pageLoading)document.documentElement.dataset.slowLoading='true'},650);function finishPageLoading(){clearTimeout(loadingDelay);delete document.documentElement.dataset.pageLoading;delete document.documentElement.dataset.slowLoading}window.addEventListener('load',finishPageLoading,{once:true});setTimeout(finishPageLoading,12000);window.addEventListener('pageshow',function(e){if(e.persisted)finishPageLoading()});</script>
 <meta name="description" content="Online therapy with Anastasia Goeva, clinical and family psychologist. CBT, DBT and EFT for anxiety, eating difficulties and relationships. Sessions in English and Russian.">
 <title>Anastasia Goeva | Online Psychologist &amp; Couples Therapy</title>
 <link rel="stylesheet" href="style.css?v=seo-booking">
 
-<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="icon" type="image/svg+xml" sizes="any" href="favicon.svg">
 <link rel="stylesheet" href="practice-preview.css?v=seo-booking">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://ogogoeva.ru/en.html">
@@ -86,8 +90,13 @@
   ]
 }
 </script>
+<link rel="icon" type="image/png" sizes="48x48" href="favicon-48.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<link rel="stylesheet" href="experience.css?v=connectivity-1">
+
 </head>
 <body class="practice-preview">
+<div class="page-progress" role="status" aria-label="Loading"></div>
 <a class="skip" href="#main">Skip to content</a>
 <header class="wrap top">
   <a class="brand" href="#main"><span class="brand-mark" aria-hidden="true">OGOGO</span><span class="brand-copy">Anastasia Goeva<span>Clinical and family psychologist</span></span></a>
@@ -454,5 +463,6 @@
   <div class="education-viewer-dots" aria-hidden="true" hidden></div>
 </dialog>
 <script src="education-gallery.js?v=dots" defer></script>
+<script src="experience.js?v=connectivity-1" defer></script>
 </body>
 </html>

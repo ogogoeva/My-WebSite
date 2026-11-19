@@ -1,0 +1,13 @@
+/* Loading feedback never hides content or blocks a booking action. */
+.page-progress { display:none; position:fixed; inset:0 0 auto; height:5px; z-index:40; overflow:hidden; pointer-events:none; background:var(--paper,#faf7ee); }
+html[data-slow-loading] .page-progress { display:block; }
+.page-progress::after { content:""; display:block; width:35%;height:3px;border-radius:50%; background:#9c645a; animation:thread-progress 1.8s ease-in-out infinite; }
+@keyframes thread-progress { from {transform:translateX(-110%)} to {transform:translateX(390%)} }
+img.image-loading { background-color:#e7e8dd; background-image:linear-gradient(110deg,transparent 28%,#faf9f190 48%,transparent 68%);background-size:250% 100%;animation:image-shimmer 1.8s ease-in-out infinite; }
+@keyframes image-shimmer { from{background-position:100% 0}to{background-position:-120% 0} }
+img.image-unavailable { background:#ecebdd;outline:1px solid #c7ccba; color:#50634f; font:14px/1.4 system-ui,sans-serif; }
+.connection-notice { position:fixed; z-index:35; inset:auto 1rem max(1rem,env(safe-area-inset-bottom));margin:auto;max-width:38rem;padding:.85rem 1rem;border:1px solid #c7ccba;border-radius:1rem;background:#faf7ee;color:#263f32;box-shadow:0 .25rem 1.5rem #263f3220;display:flex;align-items:center;gap:.8rem;font:14px/1.5 "Golos Text",system-ui,sans-serif; }
+.connection-notice button {min-width:44px;min-height:44px;border:0;background:#344c3b;color:#faf7ee;border-radius:999px;padding:.5rem 1rem;font:inherit;cursor:pointer;flex-shrink:0;}
+.connection-notice[hidden],.connection-notice button[hidden] {display:none}
+@media(max-width:450px){.connection-notice{flex-direction:column;align-items:stretch}.connection-notice button{align-self:flex-start}}
+@media(prefers-reduced-motion:reduce){.page-progress::after,img.image-loading{animation:none}.page-progress::after{width:100%}}

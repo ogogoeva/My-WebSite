@@ -1,14 +1,23 @@
 <!doctype html>
 <html lang="en">
 <head>
+
+
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+<style>.page-progress{display:none;position:fixed;inset:0 0 auto;height:5px;z-index:40;overflow:hidden;pointer-events:none;background:#faf7ee}html[data-slow-loading] .page-progress{display:block}.page-progress::after{content:"";display:block;width:35%;height:3px;border-radius:50%;background:#9c645a;animation:thread-progress 1.8s ease-in-out infinite}@keyframes thread-progress{from{transform:translateX(-110%)}to{transform:translateX(390%)}}@media(prefers-reduced-motion:reduce){.page-progress::after{animation:none;width:100%}}</style>
+<script>document.documentElement.dataset.pageLoading='true';var loadingDelay=setTimeout(function(){if(document.documentElement.dataset.pageLoading)document.documentElement.dataset.slowLoading='true'},650);function finishPageLoading(){clearTimeout(loadingDelay);delete document.documentElement.dataset.pageLoading;delete document.documentElement.dataset.slowLoading}window.addEventListener('load',finishPageLoading,{once:true});setTimeout(finishPageLoading,12000);window.addEventListener('pageshow',function(e){if(e.persisted)finishPageLoading()});</script>
   <title>Personal Data Processing Policy · Anastasia Goeva</title>
-  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="icon" type="image/svg+xml" sizes="any" href="favicon.svg">
   <link rel="stylesheet" href="style.css?v=privacy-page">
 <link rel="canonical" href="https://ogogoeva.ru/privacy-en.html">
+<link rel="icon" type="image/png" sizes="48x48" href="favicon-48.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<link rel="stylesheet" href="experience.css?v=connectivity-1">
+
 </head>
 <body>
+<div class="page-progress" role="status" aria-label="Loading"></div>
   <main class="wrap privacy-page">
     <a href="en.html">← Back to home</a>
     <h1>Personal Data Processing Policy</h1>
@@ -17,7 +26,9 @@
     <section><h2>3. Legal grounds for processing</h2><p>I process the information needed to respond to your request and to arrange or provide services at your request. If consent is the legal basis for a specific use of your data, I ask for it separately from any other documents or information you confirm. Information may also be processed to meet legal obligations.</p></section>
     <section><h2>4. Retention</h2><p>Retention depends on why you contacted me, whether we enter into an agreement and any legal requirements. Once the information is no longer needed and there is no other lawful basis to keep it, processing stops and the information is deleted or anonymised as applicable.</p></section>
     <section><h2>5. Hosting and external services</h2><p>The website is hosted on Yandex Object Storage (Yandex Cloud). The hosting provider may process technical information, including IP addresses, when pages load. When you follow a link to a messaging app, YouTube or a bookseller, that service may process information under its own policies.</p></section>
+    <p>Your language preference is stored in your browser. A fallback page may be cached locally so it can be displayed if the connection is lost.</p>
     <section><h2>6. Your rights</h2><p>You may ask about how your information is handled, request corrections, restriction or deletion where applicable, or withdraw consent where processing relies on it. Email <a href="mailto:anagoeva7@gmail.com">anagoeva7@gmail.com</a> to make a request.</p></section>
   </main>
+<script src="experience.js?v=connectivity-1" defer></script>
 </body>
 </html>
