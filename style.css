@@ -12,7 +12,7 @@
 html { scroll-behavior: smooth; }
 body { margin: 0; background: var(--paper); color: var(--ink); font: 16px/1.6 system-ui, sans-serif; }
 a { color: inherit; text-underline-offset: .23em; }
-a:focus-visible, summary:focus-visible { outline: 2px solid currentColor; outline-offset: 5px; }
+a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px solid currentColor; outline-offset: 5px; }
 .skip { position: absolute; top: 0; left: 1rem; padding: .5rem 1rem; background: var(--paper); transform: translateY(-120%); }
 .skip:focus { transform: translateY(0); z-index: 1; }
 .wrap { width: min(1160px, calc(100% - 96px)); margin-inline: auto; }
@@ -456,3 +456,6 @@ html {
 .privacy-page h2 { font-size: clamp(1.5rem, 4vw, 2.15rem); margin-block: 1.75rem .5rem; }
 .privacy-page p + p { margin-top: .65rem; }
 .privacy-page a { overflow-wrap: anywhere; }
+
+/* Keep the privacy link easy to tap without changing the footer layout. */
+.site-footer .privacy-link { display: inline-flex; align-items: center; min-height: 44px; }
