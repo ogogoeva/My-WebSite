@@ -8,7 +8,7 @@
   if (!watched.has(image)) { watched.add(image); image.addEventListener('load', settle); image.addEventListener('error', settle); }
   image.classList.remove('image-unavailable');
   if (image.complete) { settle(); return; }
-  image.setAttribute('aria-busy','true');
+  if (image.alt.trim()) image.setAttribute('aria-busy','true');
   setTimeout(() => { if (!image.complete) image.classList.add('image-loading'); },350);
  }
  document.querySelectorAll('img').forEach(watch);
