@@ -1,4 +1,24 @@
 (() => {
+ // Keep Telegram drafts percent-encoded, including restored or dynamically added links.
+ // URLSearchParams can read legacy + spaces, but its serializer would introduce them again.
+ function normalizeTelegramDraft(link) {
+  if (!(link instanceof HTMLAnchorElement)) return;
+  try {
+   const url = new URL(link.href, document.baseURI);
+   if (!['t.me','telegram.me'].includes(url.hostname) || url.pathname.replace(/\/$/,'') !== '/ogogoevaa' || !url.searchParams.has('text')) return;
+   url.search = '?' + Array.from(url.searchParams, ([key,value]) => encodeURIComponent(key) + '=' + encodeURIComponent(value)).join('&');
+   if (link.href !== url.href) link.href = url.href;
+  } catch {}
+ }
+ const normalizeTelegramDrafts = () => document.querySelectorAll('a[href]').forEach(normalizeTelegramDraft);
+ normalizeTelegramDrafts();
+ window.addEventListener('pageshow', normalizeTelegramDrafts);
+ for (const event of ['pointerdown','click','auxclick']) {
+  document.addEventListener(event, e => {
+   const target = e.target instanceof Element ? e.target : e.target?.parentElement;
+   normalizeTelegramDraft(target?.closest('a[href]'));
+  }, true);
+ }
  const english = document.documentElement.lang === 'en';
  try { localStorage.setItem('site-language', english ? 'en' : 'ru'); } catch {}
  const watched = new WeakSet();
