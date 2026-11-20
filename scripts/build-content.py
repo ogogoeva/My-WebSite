@@ -1,7 +1,7 @@
 from pathlib import Path
 from html import escape
 import json,re,xml.etree.ElementTree as ET
-from urllib.parse import urlencode
+from urllib.parse import urlencode, quote
 R=Path(__file__).resolve().parent.parent
 BASE='https://ogogoeva.ru/'
 DATA=[
@@ -15,7 +15,7 @@ def text(lang,ru,en):return ru if lang=='ru' else en
 def filename(slug,lang):return slug+('' if lang=='ru' else '-en')+'.html'
 def booking(lang,pair=False):
  msg=text(lang,'Здравствуйте, мы хотим записаться на парную сессию' if pair else 'Здравствуйте, я хочу записаться на сессию','Hello, we’d like to book a couples session' if pair else 'Hello, I’d like to book a session')
- return 'https://t.me/ogogoevaa?'+urlencode({'text':msg})
+ return 'https://t.me/ogogoevaa?'+urlencode({'text':msg}, quote_via=quote)
 
 def price(lang,pair):
  src=(R/('index.html' if lang=='ru' else 'en.html')).read_text()
